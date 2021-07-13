@@ -46,10 +46,10 @@ function NavBar() {
         <Toolbar position="sticky" color="rgba(0, 0, 0, 0.87)" className={classes.bar}>
             <img src={logo} className={classes.logo} />
             <Typography variant="h6" className={classes.menuItem}>
-                About Space Learning Game
+                About
             </Typography>
             <Typography variant="h6" className={classes.menuItem}>
-                Space Education Crisis
+                How to play
             </Typography>
             <Typography variant="h6" className={classes.menuItem}>
                 Priscilla (Ruiz) Seal
