@@ -28,7 +28,6 @@ export default function NasaPhoto() {
            <img src={photoData.url} alt={photoData.title} />
            <div>
                <h1>{photoData.title}</h1>
-               <p>{photoData.date}</p>
                <p>{photoData.explanation}</p>
            </div>
        </div>
