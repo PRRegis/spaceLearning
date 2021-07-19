@@ -4,6 +4,10 @@ import Container from '@material-ui/core/Container'
 import { Typography } from '@material-ui/core';
 import './App.css';
 import React, { useState } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './components/Home';
+import NasaPhoto from './components/NasaPhoto';
+
 
 
 
@@ -47,16 +51,12 @@ class App extends React.Component {
         <NavBar />
         <Container maxWidth='lg'>
           <div style={mainContainer}>
-          <h1 >Space Learning Game</h1>
-          <h2 >Sample API data- Nasa JSON API in progress</h2>
-          <h3>Pulling from: https://jsonplaceholder.typicode.com/users</h3>
-          <ul>
-            {items.map(item => (
-              <li key={item.id}>
-                name. {item.name} | city : {item.city}
-              </li>
-            ))}
-          </ul>
+          <BrowserRouter>
+         <div>
+            <Route component={Home} path="/" exact />
+            <Route component={NasaPhoto} path="/nasaphoto" />
+        </div>
+         </BrowserRouter>
           </div>
           
         </Container>
@@ -157,8 +157,13 @@ class App extends React.Component {
 //    const classes = styles(); 
 
     return (
-
       <div >
+         <BrowserRouter>
+         <div>
+            <Route component={Home} path="/" exact />
+            <Route component={NasaPhoto} path="/nasaphoto" />
+        </div>
+      </BrowserRouter>
         <NavBar />
         <Container maxWidth='sm'>
           <h1 style={mainContainer}>Space Learning Game</h1>
