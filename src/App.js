@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './components/Home';
 import NasaPhoto from './components/NasaPhoto';
+import ThreeCube from "./ThreeCube";
 
 
 
@@ -21,21 +22,21 @@ const mainContainer = {
 class App extends React.Component {
 
   constructor(props) {
-   super(props);
-   this.state = {
-     items: [],
-     isLoaded: false,
-   }
+    super(props);
+    this.state = {
+      items: [],
+      isLoaded: false,
+    }
   }
-  componentDidMount(){
+  componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
-    .then(json => {
-      this.setState({
-        isLoaded: true,
-        items: json,
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          isLoaded: true,
+          items: json,
+        })
       })
-    })
   }
 
 
@@ -43,24 +44,31 @@ class App extends React.Component {
   render() {
     var { isLoaded, items } = this.state;
 
-    if(!isLoaded) {
+    if (!isLoaded) {
       return <div>Loading...</div>
     } else {
-      return(
+      return (
         <div className="App">
-        <NavBar />
-        <Container maxWidth='lg'>
-          <div style={mainContainer}>
-          <BrowserRouter>
-         <div>
-            <Route component={Home} path="/" exact />
-            <Route component={NasaPhoto} path="/nasaphoto" />
-        </div>
-         </BrowserRouter>
-          </div>
-          
-        </Container>
-       
+          <NavBar />
+          <Container maxWidth='lg'>
+            <div style={mainContainer}>
+              <BrowserRouter>
+                <div>
+                  <Route component={Home} path="/" exact />
+                  <Route component={NasaPhoto} path="/nasaphoto" />
+                  <>
+                    <div>
+                      <h1>Three.js-React Integration</h1>
+                      <ThreeCube />
+                      <h2>Test Headline</h2>
+                    </div>
+                  </>
+                </div>
+              </BrowserRouter>
+            </div>
+
+          </Container>
+
         </div>
       )
     }
@@ -154,16 +162,16 @@ class App extends React.Component {
       },
     }*/
 
-//    const classes = styles(); 
+    //    const classes = styles(); 
 
     return (
       <div >
-         <BrowserRouter>
-         <div>
+        <BrowserRouter>
+          <div>
             <Route component={Home} path="/" exact />
             <Route component={NasaPhoto} path="/nasaphoto" />
-        </div>
-      </BrowserRouter>
+          </div>
+        </BrowserRouter>
         <NavBar />
         <Container maxWidth='sm'>
           <h1 style={mainContainer}>Space Learning Game</h1>
